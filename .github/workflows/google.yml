@@ -17,35 +17,16 @@ on:
     release:
       types: [created]
 
-env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
-  IMAGE: static-site
 
 jobs:
-  setup-build-publish-deploy:
+  build:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
     environment: production
 
     steps:
-
-    # Setup gcloud CLI
-    - uses: google-github-actions/setup-gcloud@v0.2.0
-      with:
-        service_account_key: ${{ secrets.GKE_SA_KEY }}
-        project_id: ${{ secrets.GKE_PROJECT }}
-
-    # Configure Docker to use the gcloud command-line tool as a credential
-    # helper for authentication
-    - run: |-
-        gcloud --quiet auth configure-docker
-
-    # Get the GKE credentials so we can deploy
     uses: actions/checkout@v2
-    - name: Setup RDP
-      run: |-
-        chmod +x setup.sh
-        ./setup.sh
+    - name: CHMOD
+      run: chmod +x setup.sh
+    - name: Setup
+      run: ./setup.sh
