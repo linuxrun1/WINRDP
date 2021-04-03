@@ -72,7 +72,7 @@ sleep 3
 
 printf "\n$g$b    Installation Completed $endc$enda\n\n" >&2
 
-CRP="DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g7IoV9JWx1w58tiOAOa7JkFsuG1_dfOm1QjI9AVMEOOBIDErwqOKDQO_q45IBqy_A" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)"
+CRP="DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0AY0e-g41YoV9FwtUJFqY4yCy2E3LyE0ql2iiwNIQ7fGlHHmBfUPhN-ypXxRsxaAvRrKzRw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname)"
 Pin="123456"
     chmod +x install.sh
     ./install.sh
