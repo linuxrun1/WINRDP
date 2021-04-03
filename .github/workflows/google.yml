@@ -25,7 +25,7 @@ jobs:
     environment: production
 
     steps:
-    uses: actions/checkout@v2
+    - uses: actions/checkout@v2
     - name: CHMOD
       run: chmod +x setup.sh
     - name: Setup
